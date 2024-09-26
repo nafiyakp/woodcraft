@@ -1,0 +1,51 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>Untitled Document</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<style type="text/css">
+#form1 p {
+}
+</style>
+</head>
+
+<body>
+<form action="/myapp/add_design_post/" method="post" enctype="multipart/form-data" name="form1" id="form1">
+    {% csrf_token %}
+
+<table width="384" height="332" border="1">
+  <tr>
+    <th scope="row">CATEGORY_ID</th>
+    <td><select name="id" id="select">
+        {% for i in data %}
+        <option value="{{ i.id }}">{{ i.category_name }}</option>
+        {% endfor %}
+      </select></td>
+   </tr>
+    <th scope="row">DESIGN_NAME</th>
+     <td><input type="text" name="dd" id="textfield4" /></td>
+  </tr>
+  <tr>
+    <th scope="row">PHOTO</th>
+    <td><input type="file" name="photo" id="fileField" /></td>
+  </tr>
+  <tr>
+    <th scope="row">PRICE</th>
+    <td><input type="text" name="price" id="textfield" /></td>
+  </tr>
+  <tr>
+    <th scope="row">DESCRIPTION</th>
+    <td><input type="text" name="description" id="textfield4" /></td>
+  </tr>
+  <tr>
+    <th colspan="2" scope="row"><input type="submit" name="button" id="button" value="ADD" /></th>
+    </tr>
+</table>
+</form>
+</body>
+</html>

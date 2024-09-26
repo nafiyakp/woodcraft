@@ -1,0 +1,43 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>Untitled Document</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/view_users_post/">
+    {% csrf_token %}
+  <table width="1295" height="176" border="1">
+    <tr>
+      <th colspan="2" scope="col">ENTER
+         <input type="text" name="search" />
+      <th colspan="4" scope="col"><input type="submit"  id="button" value="SEARCH" /></th>
+    </tr>
+    <tr>
+      <td width="58">S/NO</td>
+      <td width="154">CUSTOMER_NAME</td>
+      <td width="74">EMAIL</td>
+      <td width="192">MOBILE NUMBER</td>
+      <td width="131">DISTRICT</td>
+      <td>ADDRESS</td>
+    </tr>
+       {% for i in data %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.customer_name }}</td>
+      <td>&nbsp;{{ i.email }}</td>
+      <td>&nbsp;{{ i.mobilenumber }}</td>
+      <td>{{ i.district}}</td>
+      <td>{{ i.place }}<br>{{ i.post }}<br>{{ i.pin }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,44 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>Untitled Document</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/view_verifiedorders_post/">
+    {% csrf_token %}
+  <table width="724" height="229" border="1">
+    <tr>
+      <th colspan="2" scope="col">FROM
+        <input type="date" name="textfield" id="textfield" /></th>
+      <th colspan="2" scope="col">TO
+        <input type="date" name="textfield2" id="textfield2" /></th>
+      <th colspan="2" scope="col"><input type="submit" name="button" id="button" value="SEARCH" /></th>
+    </tr>
+    <tr>
+      <td width="75">S/NO</td>
+      <td width="219">DATE</td>
+      <td width="102">CUSTOMER_ID</td>
+      <td width="137">ADDRESS</td>
+      <td width="49">DESIGN_ID</td>
+    </tr>
+       {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>{{ i.date }}</td>
+      <td>&nbsp;{{ i.CUSTOMER_ID.customer_name }}</td>
+      <td>{{ i.CUSTOMER_ID.place }}<br>{{ i.CUSTOMER_ID.pin }}<br>{{ i.CUSTOMER_ID.post }}<br>{{ i.CUSTOMER_ID.district }}&nbsp;</td>
+      <td><img src="{{ i.DESIGN.photo }}" height="100px" width="100px"><br>{{ i.DESIGN.design_name }}&nbsp;</td>
+
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+</html>

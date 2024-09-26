@@ -1,0 +1,56 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>Untitled Document</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+</head>
+
+<body>
+<form action="/myapp/AddAmounttocustomisedproduct_post/" method="post" enctype="multipart/form-data" name="form1" id="form1">
+    {% csrf_token %}
+  <table width="412" border="1">
+   <input type="hidden" value="{{ data.PRODUCT.id }}" name="pid">
+{#    <tr>#}
+{#      <th width="179" scope="row">PRODUCT_ID</th><input type="hidden" value="{{ data.id }}"name="id">#}
+{#        <td><input type="text" value="{{ data. }}" </td>#}
+{#      <td width="217"><select name="product_id" required>#}
+{#          {% for i in cat %}#}
+{#             <option value="{{ i.id }}">{{ i.product_name }}</option>#}
+{#          {% endfor %}#}
+{#          </select></td>#}
+{#    </tr>#}
+    <tr>
+      <th scope="row">PRODUCT_NAME</th>
+      <td>{{ data.PRODUCT.product_name }}</td>
+    </tr>
+    <tr>
+      <th scope="row">DESCRIPTION</th>
+      <td>{{ data.PRODUCT.description }}</td>
+    </tr>
+    <tr>
+      <th scope="row">MATERIAL</th>
+      <td>{{ data.PRODUCT.material }}</td>
+    </tr>
+    <tr>
+      <th scope="row">PRICE</th>
+      <td><input type="text" name="price" id="price"value="{{ data.price }}"/></td>
+    </tr>
+    <tr>
+      <th scope="row">PHOTO</th>
+      <td><img src="{{ data.PRODUCT.photo }}" height="200" width="200"></td>
+    </tr>
+    <tr>
+      <th scope="row">&nbsp;</th>
+      <td><input type="submit" name="button3" id="button3" value="UPDATE" /></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+</form>
+</body>
+</html>

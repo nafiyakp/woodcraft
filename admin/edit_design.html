@@ -1,0 +1,45 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>Untitled Document</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+</head>
+
+<body>
+<form action="/myapp/edit_design_post/" method="post" enctype="multipart/form-data" name="form1" id="form1">
+     {% csrf_token %}
+  <table width="275" height="227" border="1">
+<input type="hidden" value="{{ data.id }}" name="id">
+    <tr>
+      <td width="105">CATEGORY_ID</td>
+      <td><select name="category_id" required>
+          {% for i in cat %}
+              <option value="{{ i.id }}">{{ i.category_name }}</option>
+          {% endfor %}
+      </select></td>
+    </tr>
+    <tr>
+      <td>PHOTO</td>
+      <td><input type="file" name="photo" id="photo"  /><img src="{{ data.photo }}" height="200" width="200"></td>
+    </tr>
+    <tr>
+      <td>PRICE</td>
+      <td><input type="text" name="price" id="price" value="{{ data.price }}"/></td>
+    </tr>
+    <tr>
+      <td><p>DESCRIPTION</p></td>
+      <td><input type="text" name="description" id="description"value="{{ data.description }}"/></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><input type="submit" name="2" id="2" value="UPDATE" /></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

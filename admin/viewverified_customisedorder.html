@@ -1,0 +1,50 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>Untitled Document</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+</head>
+
+<body>
+<form method="post" action="/myapp/viewverified_customisedorder_post/">
+{% csrf_token %}
+<table width="1019" height="229" border="1">
+  <tr>
+    <th colspan="2" scope="col">FROM
+      <input type="date" name="textfield" id="textfield" /></th>
+    <th colspan="2" scope="col">TO
+      <input type="date" name="textfield2" id="textfield2" /></th>
+    <th colspan="4" scope="col"><input type="submit" name="button" id="button" value="SEARCH" /></th>
+  </tr>
+  <tr>
+    <td width="65">S/NO</td>
+    <td width="187">DATE</td>
+    <td width="134">CUSTOMER_ID</td>
+    <td width="128">DESCRIPTION</td>
+    <td width="84">PRICE</td>
+    <td width="123">QUANTITY</td>
+    <td width="123">STATUS</td>
+      <td width="84">PHOTO</td>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ i.date }}</td>
+    <td>{{ i.CUSTOMER.customer_name}}</td>
+      <td>&nbsp;{{ i.PRODUCT.description }}</td>
+      <td>{{ i.PRODUCT.price }}</td>
+    <td>{{ i.PRODUCT.Quantity }}</td>
+      <td>{{ i.status }}</td>
+    <td><img src="{{ i.PRODUCT.photo }}"height="100px" width="100px"</td>
+
+  </tr>
+    {%  endfor %}
+</table>
+</form>
+</body>
+</html>

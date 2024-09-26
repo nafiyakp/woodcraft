@@ -1,0 +1,52 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>Untitled Document</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/view_orderstatus_post/">
+    {%  csrf_token %}
+  <table width="828" height="277" border="1">
+  <tr></tr>
+  <tr></tr>
+  <tr>
+    <td>FROM</td>
+    <td><input type="date" name="textfield" id="textfield" /></td>
+    <td>TO</td>
+    <td><input type="date" name="textfield2" id="textfield2" /></td>
+    <td><input type="submit"  id="button" value="SEARCH" /></td>
+  </tr>
+  <tr>
+    <td>S/NO</td>
+    <td>DATE</td>
+      <td>CATEGORY</td>
+    <td>DESIGN info</td>
+    <td><p>QUANTITY</p>
+        <td>total amount
+      </td>
+          <td>STATUS</td>
+
+  </tr>
+       {% for i in data %}
+      <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ i.date }}</td>
+    <td>{{ i.category }}</td>
+    <td><img src="{{ i.dphoto }}" height="100px" width="100px"> <br>{{ i.dname }}</td>
+              <td>{{ i.quantity }}</td>
+
+    <td>{{ i.amount }}</td>
+          <td>&nbsp;{% if i.status == "verified" %}<a href="/myapp/raz_pay/{{ i.amount }}/{{ i.id }}">Pay</a>{% else %}{{ i.status }}{% endif %}</td>
+  </tr>
+       {% endfor %}
+  </table>
+</form>
+</body>
+</html>

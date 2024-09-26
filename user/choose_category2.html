@@ -1,0 +1,36 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>Untitled Document</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/choose_category2_post/">
+    {% csrf_token %}
+  <table width="679" height="146" border="1">
+    <tr>
+      <th width="68" scope="col">S/NO</th>
+      <th width="151" scope="col">DESIGN_ID</th>
+      <th width="102" scope="col">PHOTO</th>
+      <th width="172" scope="col">DESCRIPTION</th>
+      <th width="152" scope="col">&nbsp;</th>
+    </tr>
+    <tr>
+      <td><input type="text" name="textfield" id="textfield" /></td>
+      <td><input type="text" name="textfield2" id="textfield2" /></td>
+      <td><input type="text" name="textfield3" id="textfield3" /></td>
+      <td><input type="text" name="textfield4" id="textfield4" /></td>
+      <td><p><a href="#">REVIEW</a></p>
+      <p><a href="#">ORDER</a></p>
+      <p><a href="#">POST</a></p></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,36 @@
+
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/view_orders_post/">
+    {% csrf_token %}
+  <table width="724" height="229" border="1">
+    <tr>
+      <th colspan="2" scope="col">FROM
+      <input type="date" name="date1" id="textfield" /></th>
+      <th colspan="2" scope="col">TO
+      <input type="date" name="date2" id="textfield2" /></th>
+      <th colspan="2" scope="col"><input type="submit" name="button" id="button" value="SEARCH" /></th>
+    </tr>
+    <tr>
+      <td width="75">S/NO</td>
+      <td width="219">DATE</td>
+      <td width="102">CUSTOMER_ID</td>
+      <td width="137">ADDRESS</td>
+      <td width="49">DESIGN_ID</td>
+      <td width="49">QUANDITY</td>
+      <td width="102">&nbsp;</td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.date }}</td>
+      <td>{{ i.CUSTOMER_ID.customer_name }}</td>
+      <td>{{ i.CUSTOMER_ID.place }}<br>{{ i.CUSTOMER_ID.pin }}<br>{{ i.CUSTOMER_ID.post }}<br>{{ i.CUSTOMER_ID.district }}</td>
+      <td><img src="{{ i.DESIGN.photo }}" height="100px" width="100px"><br>{{ i.DESIGN.design_name }}
+        <td>{{ i.quantity }}</td>
+      <td><a href="/myapp/verifi_orders/{{ i.id }}">VERIFY</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+

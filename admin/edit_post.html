@@ -1,0 +1,63 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>Untitled Document</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+</head>
+
+<body>
+<form action="/myapp/edit_post_post/" method="post" enctype="multipart/form-data" name="form1" id="form1">
+    {% csrf_token %}
+  <tr>
+    <td width="241"><table width="438" height="236" border="1">
+        <input type="hidden" value="{{ data.id }}" name="id">
+      <tr>
+        <td height="34">POST_NAME</td>
+          <td><input type="text" value="{{ data.post_name }}" name="post_name"></td>
+      </tr>
+      <tr>
+        <td height="34"><p>DESIGN_ID</p></td>
+        <td><label>
+         <select name="design_id" >
+           {% for i in cat %}
+              <option value="{{ i.id }}">{{ i.CATEGORY.category_name }}</option>
+           {% endfor %}</select>
+        </label></td>
+      </tr>
+      <tr>
+        <td width="241">PHOTO_1</td>
+        <td width="181"><input type="file" name="photo_1" /><img src="{{ data.photo_1 }}"height="200"width="200"></td>
+      </tr>
+      <tr>
+        <td>PHOTO_2</td>
+        <td><input type="file" name="photo_2" id="photo_2"/><img src="{{ data.photo_2 }}"height="300"width="200"></td>
+      </tr>
+      <tr>
+        <td>PHOTO_3</td>
+        <td><input type="file" name="photo_3" id="photo_3"/><img src="{{ data.photo_3 }}"height="200"width="200"></td>
+      </tr>
+      <tr>
+        <td>DESCRIPTION_1</td>
+        <td><input type="text" name="description_1" id="textfield2"value="{{data.description_1 }}" /></td>
+      </tr>
+      <tr>
+        <td>DESCRIPTION_2</td>
+        <td><input type="text" name="description_2" id="textfield3"value="{{data.description_2   }}" /></td>
+      </tr>
+      <tr>
+        <td height="34">DESCRIPTION_3</td>
+        <td><input type="text" name="description_3" id="textfield4"value= "{{ data.description_3}}"/></td>
+      </tr>
+      <tr>
+        <td height="34" colspan="2"><input type="submit" name="32" id="32" value="UPDATE" /></td>
+        </tr>
+    </table></td>
+  </tr>
+</form>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<table width="356" height="255" border="1">
+  <tbody>
+    <tr>
+      <td width="176">CUSTOMER_NAME</td>
+      <td width="164">&nbsp;{{ data.customer_name }}</td>
+    </tr>
+    <tr>
+      <td><p>EMAIL</p></td>
+      <td>{{ data.email  }}</td>
+    </tr>
+    <tr>
+      <td>MOBILE_NUMBER</td>
+      <td>{{ data.mobilenumber }}</td>
+    </tr>
+    <tr>
+      <td>PLACE</td>
+      <td>&nbsp;{{ data.place }}</td>
+    </tr>
+    <tr>
+      <td>DISTRICT</td>
+      <td><select name="select" id="select">
+                 
+        <option value="KOZHIKODE">KOZHIKODE</option>
+                 
+        <option value="KANNUR">KANNUR</option>
+                 
+        <option value="KOTTAYAM">KOTTAYAM</option>
+                 
+        <option value="THRISSUR">THRISSUR</option>
+               
+      </select>{{ data.district }}</td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td>&nbsp;{{ data.post }}</td>
+    </tr>
+    <tr>
+      <td>PIN</td>
+      <td>&nbsp;{{ data.pin }}</td>
+    </tr>
+    <tr>
+        <td><a href="/myapp/edit_profile/">edit</a></td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>

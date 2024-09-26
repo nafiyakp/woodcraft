@@ -1,0 +1,49 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>Untitled Document</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/view_product_post/" method="post">
+   {% csrf_token %}
+<table>
+    <tr>
+        <th><input type="text" name="search"id="textfield"></th>
+        <td><input type="submit" name="button" id="button" value="SEARCH" /></td>
+    </tr>
+</table>
+
+  <table width="844" height="137" border="1">
+    <tr>
+      <th width="128" scope="col">S/NO</th>
+      <th width="166" scope="col">PRODUCT_NAME</th>
+      <th width="135" scope="col">DESCRIPTION</th>
+      <th width="104" scope="col">MATERIAL</th>
+      <th width="71" scope="col">PHOTO</th>
+      <th width="60" scope="col">PRICE</th>
+      <th width="134" scope="col">&nbsp;</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td height="84">{{ forloop.counter }}</td>
+      <td>{{ i.product_name }}</td>
+      <td>{{ i.description }}</td>
+      <td>&nbsp;{{ i.material }}</td>
+      <td><img src="{{ i.photo }} "height="100" width="200""></td>
+      <td>&nbsp;{{ i.price }}</td>
+      <td><p><a href="/myapp/edit_product/{{ i.id }}">EDIT</a></p>
+      <p><a href="/myapp/delete_product/{{ i.id }}">DELETE</a></p></td>
+    </tr>
+      {% endfor %}
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/send_order_post/">
+    {% csrf_token %}
+    <input type="hidden" name="did" value="{{ id }}">
+
+<table width="416" height="231" border="1">
+  <tr>
+    <td width="216" height="56">quantity</td>
+    <td width="184"> <label>
+            <input type="text" name="Q" id="3" />
+    </label></td>
+  </tr>
+
+  <tr>
+    <td>&nbsp;</td>
+    <td><input type="submit" name="22" id="22" value="Add" /></td>
+  </tr>
+</table>
+</form>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>register</title>
+</head>
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/edit_profilepost/">
+    {% csrf_token %}
+  <table width="356" height="255" border="1">
+    <tr>
+      <td width="176">CUSTOMER_NAME</td>
+      <td width="164"><input type="text" name="name" id="textfield" value={{ data.customer_name }}/></td>
+    </tr>
+    <tr>
+      <td><p>EMAIL</p></td>
+      <td><input type="text" name="email" id="textfield2" value="{{ data.email }}"/></td>
+    </tr>
+    <tr>
+      <td>MOBILE_NUMBER</td>
+      <td><input type="text" name="mobilenumber" id="textfield3" value={{ data.mobilenumber }} /></td>
+    </tr>
+    <tr>
+      <td>PLACE</td>
+      <td><input type="text" name="place" id="textfield4" value={{ dat.place }}/></td>
+    </tr>
+    <tr>
+      <td>DISTRICT</td>
+      <td><select name="district" id="select" value={{ data.district }}>
+        <option value="KOZHIKODE">KOZHIKODE</option>
+        <option value="KANNUR">KANNUR</option>
+        <option value="KOTTAYAM">KOTTAYAM</option>
+        <option value="THRISSUR">THRISSUR</option>
+      </select></td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td><input type="text" name="post" id="textfield6" value={{ data.post }}/></td>
+    </tr>
+    <tr>
+      <td>PIN</td>
+      <td><input type="text" name="pin" id="textfield7" value={{ data.pin}} /></td>
+    </tr>
+      <td colspan="2"><input type="submit" name="button" id="button" value="EDIT" /></td>
+    </tr>
+  </table>
+</form>
+
+</body>
+</html>
